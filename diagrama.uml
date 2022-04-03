@@ -1,0 +1,59 @@
+@startuml
+class Prenda{
+precioBase
+estado
+precioFinal()
+}
+
+interface Estado{
+precio(precioBase)
+}
+
+class Nueva{
+precio(precioBase)
+}
+
+class Liquidacion{
+precio(precioBase)
+}
+
+class Promocion{
+cantidadARestarDelPrecioBase
+precio(precioBase)
+}
+
+class Efectivo{
+precio(prendas)
+precioFinal(prendas)
+}
+
+class Tarjeta{
+cuotas
+coeficienteFijo
+precioFinal(prendas)
+recargo(prendas)
+}
+
+class Venta{
+diaRealizado
+prendas
+type
+precioVenta()
+cantidadDePrendas()
+}
+
+class Macowins{
+ventas
+GananciasDeUnDeterminadoDia()
+}
+
+Prenda --> Estado
+Nueva ..|> Estado
+Liquidacion ..|> Estado
+Promocion ..|>Estado
+Tarjeta --|> Efectivo
+Venta -->"*" Prenda
+Venta --> Efectivo
+Macowins -->"*" Venta
+ 
+@enduml
