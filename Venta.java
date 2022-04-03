@@ -25,4 +25,8 @@ import java.util.ArrayList; // import just the ArrayList class
     public LocalDate diaRealizada(){
         return this.diaRealizada;
     }
+
+    public boolean seRealizoEl(LocalDate dia){
+        return diaRealizada.equals(dia);
+    }
  }
